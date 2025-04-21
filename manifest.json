@@ -1,0 +1,17 @@
+{
+    "format_version": 2,
+    "header": {
+      "name": "Cartoon Vibe Pack",
+      "description": "A vibrant, cartoony resource pack for Bedrock!",
+      "uuid": "12345678-1234-5678-1234-567812345678",
+      "version": [1, 0, 0]
+    },
+    "modules": [
+      {
+        "type": "resources",
+        "uuid": "87654321-4321-8765-4321-876543218765",
+        "version": [1, 0, 0]
+      }
+    ]
+  }
+  
