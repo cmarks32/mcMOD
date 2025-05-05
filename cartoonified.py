@@ -12,20 +12,24 @@ def cartoonify_image(image_path, output_path):
     # Increase saturation
     enhancer = ImageEnhance.Color(img)
     img = enhancer.enhance(2.0)  # 2.0 = 200% saturation
-
+    img.save(output_path[:-4]+"1"+output_path[-4:])
+    print(output_path[:-4]+"1"+output_path[-4:])
     # Increase contrast
     enhancer = ImageEnhance.Contrast(img)
     img = enhancer.enhance(1.5)
-
+    img.save(output_path[:-4]+"2"+output_path[-4:])
+    print(output_path[:-4]+"2"+output_path[-4:])
     # Detect edges and blend as "outline"
     edges = img.convert('L').filter(ImageFilter.FIND_EDGES)
     edges = edges.point(lambda x: 255 if x < 1 else 0)  # threshold
     edges = edges.convert('RGBA')
     outline = Image.new('RGBA', img.size, (0, 0, 0, 0))
-    outline.paste((0, 0, 0, 255), mask=edges)
+    outline.paste((0, 0, 0, 0), mask=edges)
 
     # Blend the outline over the image
     cartoon_img = Image.alpha_composite(img, outline)
+    
+    
 
     cartoon_img.save(output_path)
 
